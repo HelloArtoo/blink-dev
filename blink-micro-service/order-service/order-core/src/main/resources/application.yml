@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/master
+    username: root
+    password: mysql
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 10
+
+  redis:
+    host: 192.168.192.39
+    password: /redis/cluster/20
+    port: 5360
+    tinmeout: 3000
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+
+
+## common connection pool properties for all tenants
+saas:
+  database:
+    connection:
+      type: com.zaxxer.hikari.HikariDataSource
+      maximum-pool-size: 10
+  async:
+    core-pool-size: 40
+    max-pool-size: 40
+    queue-capacity: 10000
+  task-thread-pool:
+      core-pool-size: 5
+      max-pool-size: 10
+      queue-capacity: 1000
+      keep-alive: 60
+
+
