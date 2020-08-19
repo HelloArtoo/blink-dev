@@ -18,7 +18,7 @@ public class ListNode {
     }
 
     public static void print(ListNode head) {
-        System.out.print("参数：");
+        System.out.print("");
         while (head != null) {
             System.out.print(head.val + " ");
             head = head.next;

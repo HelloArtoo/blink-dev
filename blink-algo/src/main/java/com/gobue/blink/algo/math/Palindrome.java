@@ -1,5 +1,7 @@
 package com.gobue.blink.algo.math;
 
+import java.util.LinkedHashMap;
+
 public class Palindrome {
 
     /**
@@ -30,9 +32,8 @@ public class Palindrome {
     public static void main(String[] args) {
         String s = "ABCDE";
         System.out.println(s.substring(-1, 2));
-        System.out.println( s.charAt(0));
-        System.out.println( s.charAt(1));
-
+        System.out.println(s.charAt(0));
+        System.out.println(s.charAt(1));
     }
 
 }

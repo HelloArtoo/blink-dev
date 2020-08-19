@@ -1,6 +1,8 @@
 package com.gobue.blink.algo.scenario;
 
 
+import java.util.Stack;
+
 /**
  * 有一组不同高度的台阶，由一个整数数组表示，当开始下雨了台阶之间的水会积多少呢。
  * <p>
@@ -89,11 +91,38 @@ public class RainStep {
         return volumn;
     }
 
+    /**
+     * 方式3：单调栈的方式
+     * @param height
+     * @return
+     */
+    public static int trap(int[] height) {
+        if(height == null || height.length <= 2) {
+            return 0;
+        }
+
+        int volumn = 0;
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < height.length; i++) {
+            //单调栈,柱子递减直到遇上打破递减的柱子
+            while(!stack.isEmpty() && height[stack.peek()] < height[i]) {
+                Integer h = stack.pop();
+                if (stack.isEmpty()) {
+                    break;
+                }
+                //高度 * 宽度 = 面积
+                volumn += Math.min(height[i] - height[h], height[stack.peek()] - height[h]) * (i - 1 - stack.peek());
+            }
+            stack.push(i);
+        }
+        return volumn;
+    }
+
 
     public static void main(String[] args) {
         int[] arr = new int[]{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
         System.out.println(getWater(arr));
         System.out.println(getWater2(arr));
-
+        System.out.println(trap(arr));
     }
 }

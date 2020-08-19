@@ -16,6 +16,7 @@
         <module>demo-cache</module>
         <module>demo-rpc</module>
         <module>demo-spring</module>
+        <module>demo-web</module>
     </modules>
 
     <dependencyManagement>

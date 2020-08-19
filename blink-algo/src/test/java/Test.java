@@ -1,17 +1,26 @@
-import java.util.PriorityQueue;
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 
 public class Test {
 
 
-    public static void main(String[] args) {
-        PriorityQueue<Integer> q = new PriorityQueue<Integer>(2);
-        q.offer(5);
-        q.offer(8);
-        q.offer(1);
-        q.offer(2);
-        q.offer(7);
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        int[] nums = {2};
+        System.out.println(removeElement(nums, 3));
+        System.out.println(Arrays.toString(nums));
 
-        System.out.println(q.peek());
-        System.out.println(q.size());
     }
+
+    public static int removeElement(int[] nums, int val) {
+        int index = 0, len = nums.length - 1;
+        for (int i = 0; i < len; i++) {
+            if (nums[i] == val) {
+                continue;
+            } else {
+                nums[index++] = nums[i];
+            }
+        }
+        return index;
+    }
+
 }

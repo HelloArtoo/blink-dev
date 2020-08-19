@@ -8,15 +8,15 @@ import java.util.Random;
  */
 public class QuickSort {
 
-    private Random random = new Random();
+    private static final Random random = new Random();
 
 
-    public void sort(int[] nums) {
+    public static void sort(int[] nums) {
         if (nums == null || nums.length < 2) {
             return;
         }
 
-        this.quickSort(nums, 0, nums.length - 1);
+        quickSort(nums, 0, nums.length - 1);
     }
 
     /**
@@ -26,7 +26,7 @@ public class QuickSort {
      * @param l
      * @param r
      */
-    private void quickSort(int[] nums, int l, int r) {
+    public static void quickSort(int[] nums, int l, int r) {
         if (l >= r) {
             return;
         }
@@ -38,7 +38,7 @@ public class QuickSort {
         quickSort(nums, pivot + 1, r);
     }
 
-    private int partition(int[] nums, int l, int r, int pivot) {
+    private static int partition(int[] nums, int l, int r, int pivot) {
         int pivot_val = nums[pivot], store_index = l;
         //1、move to end
         swap(nums, pivot, r);
@@ -54,7 +54,7 @@ public class QuickSort {
         return store_index;
     }
 
-    private void swap(int[] nums, int i, int j) {
+    private static void swap(int[] nums, int i, int j) {
         if (i == j) {
             return;
         }

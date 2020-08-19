@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: dev
+
+logging:
+  file:
+    path: /app/service_logs/pshorn
+
+jwt:
+  #密钥
+  secret: GOMEDHR
+  #固定授权的用户
+  username: peoplesoft
